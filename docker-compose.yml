@@ -28,8 +28,6 @@ services:
     restart: on-failure
     environment:
       - TZ=Etc/UTC
-    env_file:
-      - env-frontend.env
     labels:
       - traefik.enable=true
       - traefik.constraint-label-stack=${TRAEFIK_TAG?Variable not set}
