@@ -25,8 +25,6 @@ services:
   frontend:
     build:
       context: frontend
-    depends_on:
-      - api
     restart: on-failure
     environment:
       - TZ=Etc/UTC
