@@ -26,9 +26,10 @@ export const usePostsStore = defineStore('posts', () => {
     let post = posts.value.filter((post) => post.id === postId)[0];
     if (!post) {
       post = {
-        ...(await dummyClient.getPost(postId)),
+        ...await dummyClient.getPost(postId),
         likeStatus: null,
       };
+      posts.value.push(post);
     }
     currentPost.value = post;
     return true;
