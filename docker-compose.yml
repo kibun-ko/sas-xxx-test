@@ -23,8 +23,6 @@ services:
     ports:
       - '${PORT-80}:80'
   frontend:
-    build:
-      context: frontend
     restart: on-failure
     environment:
       - TZ=Etc/UTC
