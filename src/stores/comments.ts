@@ -22,6 +22,7 @@ export const useCommentsStore = defineStore('comments', () => {
 
   const deleteComment = async (commentId: number) => {
     comments.value = comments.value.filter((comment) => comment.id !== commentId);
+    page.value.total--;
   };
 
   function $reset() {
