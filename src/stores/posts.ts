@@ -37,6 +37,22 @@ export const usePostsStore = defineStore('posts', () => {
 
   const setLikeStatus = async (postId: number, likeStatus: boolean | null) => {
     const post = useFirst(posts.value.filter((post) => post.id === postId))!;
+
+    if (post.likeStatus === likeStatus) {
+      return;
+    }
+
+    // mock reactions
+    if (post.likeStatus) {
+      post.reactions.likes--;
+    } else if (post.likeStatus === false) {
+      post.reactions.dislikes--;
+    }
+    if (likeStatus) {
+      post.reactions.likes++;
+    } else if (likeStatus === false) {
+      post.reactions.dislikes++;
+    }
     post.likeStatus = likeStatus;
   };
 

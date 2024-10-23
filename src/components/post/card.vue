@@ -21,7 +21,7 @@ defineEmits<{
       <post-reaction-buttons
         :like-status="post.likeStatus"
         :likes="post.reactions.likes"
-        v-model:dislikes="post.reactions.dislikes"
+        :dislikes="post.reactions.dislikes"
         @set-like-status="(status) => $emit('set-like-status', status)"
       />
       <nuxt-link class="cursor-pointer text-primary underline underline-offset-4" :to="`/posts/${post.id}`">
